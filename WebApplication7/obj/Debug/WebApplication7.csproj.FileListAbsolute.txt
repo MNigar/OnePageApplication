@@ -77,3 +77,9 @@ D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.csproj
 D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.csproj.CopyComplete
 D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.dll
 D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.pdb
+D:\Templates\OnePageApplication\WebApplication7\bin\EntityFramework.dll
+D:\Templates\OnePageApplication\WebApplication7\bin\EntityFramework.SqlServer.dll
+D:\Templates\OnePageApplication\WebApplication7\bin\EntityFramework.xml
+D:\Templates\OnePageApplication\WebApplication7\bin\EntityFramework.SqlServer.xml
+D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.addedtables.resources
+D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.csproj.GenerateResource.cache

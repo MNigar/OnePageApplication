@@ -13,20 +13,20 @@ namespace WebApplication7.Db
         {
 
         }
-        public DbSet<About> About { get; set; }
-        public DbSet<Category> Category { get; set; }
-        public DbSet<Fact> Fact { get; set; }
-        public DbSet<Feature> Feature { get; set; }
-        public DbSet<Feedback> Feedback { get; set; }
-        public DbSet<Menu> Menu { get; set; }
-        public DbSet<Package> Package { get; set; }
-        public DbSet<Post> Post { get; set; }
-        public DbSet<Project> Project { get; set; }
-        public DbSet<Service> Service { get; set; }
-        public DbSet<ServiceComponent> ServiceComponent { get; set; }
-        public DbSet<Setting> Setting { get; set; }
-        public DbSet<Skill> Skill { get; set; }
-        public DbSet<SocialMedia> SocialMedia { get; set; }
+        public virtual DbSet<About> Abouts { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Fact> Facts { get; set; }
+        public virtual DbSet<Feature> Features { get; set; }
+        public virtual DbSet<Feedback> Feedbacks { get; set; }
+        public virtual DbSet<Menu> Menus { get; set; }
+        public virtual DbSet<Package> Packages { get; set; }
+        public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<Project> Projects { get; set; }
+        public virtual DbSet<Service> Services { get; set; }
+        public virtual DbSet<ServiceComponent> ServiceComponents { get; set; }
+        public virtual DbSet<Setting> Settings { get; set; }
+        public virtual DbSet<Skill> Skills { get; set; }
+        public virtual DbSet<SocialMedia> SocialMedias { get; set; }
 
     }
 }
