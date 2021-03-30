@@ -5,8 +5,8 @@ using System.Web;
 
 namespace WebApplication7.DbModel
 {
-    public class Skill
+    public class Skill:BaseClass
     {
-
+        public int Point { get; set; }
     }
 }
