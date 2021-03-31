@@ -9,5 +9,10 @@ namespace WebApplication7.Model.ViewModel
     public class HomeViewModel
     {
         public List<Feature> Feature { get; set; }
+        public About About { get; set; }
+        public Service Service { get; set; }
+        public List<ServiceComponent> ServiceComponent { get; set; }
+        public Price Price { get; set; }
+        
     }
 }

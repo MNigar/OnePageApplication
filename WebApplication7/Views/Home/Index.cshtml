@@ -1,5 +1,5 @@
 ﻿@model WebApplication7. Model.ViewModel.HomeViewModel
-@Layout=null;
+@{Layout = null;}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -217,18 +217,27 @@
             <div class="row">
 
 
-                <div class="about-con col-md-9">
+                <!--<div class="about-con col-md-9">
                     <h4>Let’s Start your Business</h4>
                     <h3>Welcome to <span>Escanor</span></h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum has been the industry. Lorem Ipsum has been the industry's standard dummy text since. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text since. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum has been the industry. Lorem Ipsum has been the industry's standard dummy text since. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text since. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+
+                    <!-- SIGNATURE -->
+                    <!--<div class="signature">
+                        <img src="~/Templates/escanordemo/demos/default-version/img/signature.png" alt="signature" />
+                    </div>
+                </div>-->
+           
+                <div class="about-con col-md-9">
+                    <h4>@Model.About.PreTitle</h4>
+                    <h3>@Html.Raw(Model.About.Title)</h3>
+                    <p>  @Model.About.Text</p>
 
                     <!-- SIGNATURE -->
                     <div class="signature">
-                        <img src="~/Templates/escanordemo/demos/default-version/img/signature.png" alt="signature" />
+                        <img src="~/Templates/escanordemo/demos/default-version/img/@Model.About.Signature" alt="signature" />
                     </div>
                 </div>
-
-
             </div>
         </div>
     </section>
@@ -240,94 +249,104 @@
 
 
                 <div class="title">
-                    <h3>Our Services</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+                    <h3> @Model.Service.Title </h3>
+                    <p>@Model.Service.SubTitle</p>
                 </div>
+                @foreach (var component in Model.ServiceComponent)
+                {
+                    <div class="col-md-4">
+                        <div class="item">
+                            <!-- HOVER EFFECT -->
+                            <div class="moving-border"><div></div></div>
+                            <!-- SERVICE ICON -->
+                            <span class="icon icon-@component.Icon"></span>
+                            <!-- SERVICE TITLE -->
+                            <h5>@component.Title</h5>
+                            <!-- SERVICES CONTENT -->
+                            <p>@component.Description</p>
+                        </div>
+                    </div>
 
+                }
 
                 <!-- Services items -->
-                <div class="col-md-4">
-                    <div class="item">
-                        <!-- HOVER EFFECT -->
-                        <div class="moving-border"><div></div></div>
-                        <!-- SERVICE ICON -->
-                        <span class="icon icon-linegraph"></span>
-                        <!-- SERVICE TITLE -->
-                        <h5>Unique Design</h5>
-                        <!-- SERVICES CONTENT -->
-                        <p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
+                <!--<div class="col-md-4">
+        <div class="item">-->
+                <!-- HOVER EFFECT -->
+                <!--<div class="moving-border"><div></div></div>-->
+                <!-- SERVICE ICON -->
+                <!--<span class="icon icon-linegraph"></span>-->
+                <!-- SERVICE TITLE -->
+                <!--<h5>Unique Design</h5>-->
+                <!-- SERVICES CONTENT -->
+                <!--<p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>-->
                 <!-- Services items -->
-                <div class="col-md-4">
-                    <div class="item">
-                        <!-- HOVER EFFECT -->
-                        <div class="moving-border"><div></div></div>
-                        <!-- SERVICE ICON -->
-                        <span class="icon icon-mobile"></span>
-                        <!-- SERVICE TITLE -->
-                        <h5>responsive Design</h5>
-                        <!-- SERVICES CONTENT -->
-                        <p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
+                <!--<div class="col-md-4">
+        <div class="item">-->
+                <!-- HOVER EFFECT -->
+                <!--<div class="moving-border"><div></div></div>-->
+                <!-- SERVICE ICON -->
+                <!--<span class="icon icon-mobile"></span>-->
+                <!-- SERVICE TITLE -->
+                <!--<h5>responsive Design</h5>-->
+                <!-- SERVICES CONTENT -->
+                <!--<p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>-->
                 <!-- Services items -->
-                <div class="col-md-4">
-                    <div class="item">
-                        <!-- HOVER EFFECT -->
-                        <div class="moving-border"><div></div></div>
-                        <!-- SERVICE ICON -->
-                        <span class="icon icon-pencil"></span>
-                        <!-- SERVICE TITLE -->
-                        <h5>Graphic Design</h5>
-                        <!-- SERVICES CONTENT -->
-                        <p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
+                <!--<div class="col-md-4">
+        <div class="item">-->
+                <!-- HOVER EFFECT -->
+                <!--<div class="moving-border"><div></div></div>-->
+                <!-- SERVICE ICON -->
+                <!--<span class="icon icon-pencil"></span>-->
+                <!-- SERVICE TITLE -->
+                <!--<h5>Graphic Design</h5>-->
+                <!-- SERVICES CONTENT -->
+                <!--<p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>-->
                 <!-- Services items -->
-                <div class="col-md-4">
-                    <div class="item">
-                        <!-- HOVER EFFECT -->
-                        <div class="moving-border"><div></div></div>
-                        <!-- SERVICE ICON -->
-                        <span class="icon icon-laptop"></span>
-                        <!-- SERVICE TITLE -->
-                        <h5>Web Design</h5>
-                        <!-- SERVICES CONTENT -->
-                        <p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
+                <!--<div class="col-md-4">
+        <div class="item">-->
+                <!-- HOVER EFFECT -->
+                <!--<div class="moving-border"><div></div></div>-->
+                <!-- SERVICE ICON -->
+                <!--<span class="icon icon-laptop"></span>-->
+                <!-- SERVICE TITLE -->
+                <!--<h5>Web Design</h5>-->
+                <!-- SERVICES CONTENT -->
+                <!--<p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>-->
                 <!-- Services items -->
-                <div class="col-md-4">
-                    <div class="item">
-                        <!-- HOVER EFFECT -->
-                        <div class="moving-border"><div></div></div>
-                        <!-- SERVICE ICON -->
-                        <span class="icon icon-layers"></span>
-                        <!-- SERVICE TITLE -->
-                        <h5>Different Layout Type</h5>
-                        <!-- SERVICES CONTENT -->
-                        <p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
+                <!--<div class="col-md-4">
+        <div class="item">-->
+                <!-- HOVER EFFECT -->
+                <!--<div class="moving-border"><div></div></div>-->
+                <!-- SERVICE ICON -->
+                <!--<span class="icon icon-layers"></span>-->
+                <!-- SERVICE TITLE -->
+                <!--<h5>Different Layout Type</h5>-->
+                <!-- SERVICES CONTENT -->
+                <!--<p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>-->
                 <!-- Services items -->
-                <div class="col-md-4">
-                    <div class="item">
-                        <!-- HOVER EFFECT -->
-                        <div class="moving-border"><div></div></div>
-                        <!-- SERVICE ICON -->
-                        <span class="icon icon-puzzle"></span>
-                        <!-- SERVICE TITLE -->
-                        <h5>Development</h5>
-                        <!-- SERVICES CONTENT -->
-                        <p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
+                <!--<div class="col-md-4">
+        <div class="item">-->
+                <!-- HOVER EFFECT -->
+                <!--<div class="moving-border"><div></div></div>-->
+                <!-- SERVICE ICON -->
+                <!--<span class="icon icon-puzzle"></span>-->
+                <!-- SERVICE TITLE -->
+                <!--<h5>Development</h5>-->
+                <!-- SERVICES CONTENT -->
+                <!--<p>Lorem ipsum dolor sit amet, conse ctetur adipis icing elit,dolor sit amet sed do ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>-->
 
 
             </div>
@@ -706,17 +725,42 @@
 
 
                 <div class="title">
-                    <h3>Our Pricing</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+                    <h3>@Model.Price.Title</h3>
+                    <p>@Model.Price.Description</p>
                 </div>
 
 
                 <!-- PRICING CONTENT START -->
                 <div class="price-c">
+                    @foreach (var package in Model.Price.Packages)
+                    {
+                        <div class="price-table col-md-4">
 
+                            <div class="item text-center">
+                                <div class="type">
+                                    <h5>@package.Name</h5>
+                                </div>
+                                <div class="mount">
+                                    <h3><span>$</span>@package.PacketPrice</h3>
+                                </div>
+                                <div class="features">
+                                    <p>@package.DiskSpace GB Disk Space</p>
+                                    <p>@package.DomainCount Domain Names</p>
+                                    <p>@package.EmailCount Email Address</p>
+                                    <p>@package.Support</p>
+                                </div>
+                                <div class="order">
+                                    <a href="#">
+                                        Purchase Now
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
 
                     <!-- PRICE TABLE START -->
-                    <div class="price-table col-md-4">
+                    <!--<div class="price-table col-md-4">
 
                         <div class="item text-center">
                             <div class="type">
@@ -738,10 +782,10 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div>-->
                     <!-- PRICE TABLE END -->
                     <!-- PRICE TABLE START -->
-                    <div class="price-table col-md-4 best">
+                    <!--<div class="price-table col-md-4 best">
 
                         <div class="item text-center">
                             <div class="type">
@@ -763,10 +807,10 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div>-->
                     <!-- PRICE TABLE END -->
                     <!-- PRICE TABLE START -->
-                    <div class="price-table col-md-4">
+                    <!--<div class="price-table col-md-4">
 
                         <div class="item text-center">
                             <div class="type">
@@ -788,11 +832,11 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div>-->
                     <!-- PRICE TABLE END -->
 
 
-                </div>
+                <!--</div>-->
                 <!-- PRICING CONTENT END -->
 
 

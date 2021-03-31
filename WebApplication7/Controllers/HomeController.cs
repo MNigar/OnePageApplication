@@ -19,6 +19,11 @@ namespace WebApplication7.Controllers
             ViewBag.SocialMedia = db.SocialMedias.ToList();
             HomeViewModel model = new HomeViewModel();
             model.Feature = db.Features.ToList();
+            model.About = db.Abouts.FirstOrDefault();
+            model.Service = db.Services.FirstOrDefault();
+            model.ServiceComponent = db.ServiceComponents.ToList();
+            model.Price = db.Prices.FirstOrDefault();
+
             return View(model);
         }
 

@@ -20,6 +20,7 @@ namespace WebApplication7.Db
         public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<Package> Packages { get; set; }
+        public virtual DbSet<Price> Prices { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<Service> Services { get; set; }
@@ -29,6 +30,6 @@ namespace WebApplication7.Db
         public virtual DbSet<SocialMedia> SocialMedias { get; set; }
         public virtual DbSet<Icon> Icons { get; set; }
 
-
+      
     }
 }

@@ -171,3 +171,9 @@ C:\Users\Nigar\source\repos\WebApplication7\WebApplication7\obj\Debug\WebApplica
 D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.updatedsocalmediatable.resources
 D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.addedicontable.resources
 D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.updatesocialmediatable.resources
+D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.udpdated.resources
+D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.updateservicetable.resources
+D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.updateservicetable1.resources
+D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.updateservicetabled.resources
+D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.AddedPricetable.resources
+D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.UpdatedPackagetable.resources

@@ -126,16 +126,22 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Manage\Controllers\AboutsController.cs" />
     <Compile Include="Areas\Manage\Controllers\FeaturesController.cs" />
     <Compile Include="Areas\Manage\Controllers\HomeController.cs" />
     <Compile Include="Areas\Manage\Controllers\IconsController.cs" />
     <Compile Include="Areas\Manage\Controllers\MenusController.cs" />
+    <Compile Include="Areas\Manage\Controllers\PackagesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\PricesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\ServiceComponentsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\ServicesController.cs" />
     <Compile Include="Areas\Manage\Controllers\SettingsController.cs" />
     <Compile Include="Areas\Manage\Controllers\SocialMediasController.cs" />
     <Compile Include="Areas\Manage\Controllers\UserController.cs" />
     <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DbModel\Icon.cs" />
+    <Compile Include="DbModel\Price.cs" />
     <Compile Include="Db\EscanorContext.cs" />
     <Compile Include="DbModel\About.cs" />
     <Compile Include="DbModel\BaseClass.cs" />
@@ -170,6 +176,30 @@
     <Compile Include="Migrations\202103310706317_updatesocialmediatable.cs" />
     <Compile Include="Migrations\202103310706317_updatesocialmediatable.Designer.cs">
       <DependentUpon>202103310706317_updatesocialmediatable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103311137022_udpdated .cs" />
+    <Compile Include="Migrations\202103311137022_udpdated .Designer.cs">
+      <DependentUpon>202103311137022_udpdated .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103311216534_updateservicetable.cs" />
+    <Compile Include="Migrations\202103311216534_updateservicetable.Designer.cs">
+      <DependentUpon>202103311216534_updateservicetable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103311240541_updateservicetable1.cs" />
+    <Compile Include="Migrations\202103311240541_updateservicetable1.Designer.cs">
+      <DependentUpon>202103311240541_updateservicetable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103311241161_updateservicetabled.cs" />
+    <Compile Include="Migrations\202103311241161_updateservicetabled.Designer.cs">
+      <DependentUpon>202103311241161_updateservicetabled.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103311402054_AddedPricetable.cs" />
+    <Compile Include="Migrations\202103311402054_AddedPricetable.Designer.cs">
+      <DependentUpon>202103311402054_AddedPricetable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103311407194_UpdatedPackagetable.cs" />
+    <Compile Include="Migrations\202103311407194_UpdatedPackagetable.Designer.cs">
+      <DependentUpon>202103311407194_UpdatedPackagetable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ViewModel\HomeViewModel.cs" />
@@ -2095,6 +2125,31 @@
     <Content Include="Areas\Manage\Views\Features\Details.cshtml" />
     <Content Include="Areas\Manage\Views\Features\Edit.cshtml" />
     <Content Include="Areas\Manage\Views\Features\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Abouts\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Abouts\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Abouts\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Abouts\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Abouts\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Services\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Services\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Services\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Services\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Services\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\ServiceComponents\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\ServiceComponents\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\ServiceComponents\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\ServiceComponents\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\ServiceComponents\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Prices\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Prices\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Prices\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Prices\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Prices\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Packages\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Packages\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Packages\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Packages\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Packages\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -4087,6 +4142,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103310706317_updatesocialmediatable.resx">
       <DependentUpon>202103310706317_updatesocialmediatable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103311137022_udpdated .resx">
+      <DependentUpon>202103311137022_udpdated .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103311216534_updateservicetable.resx">
+      <DependentUpon>202103311216534_updateservicetable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103311240541_updateservicetable1.resx">
+      <DependentUpon>202103311240541_updateservicetable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103311241161_updateservicetabled.resx">
+      <DependentUpon>202103311241161_updateservicetabled.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103311402054_AddedPricetable.resx">
+      <DependentUpon>202103311402054_AddedPricetable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103311407194_UpdatedPackagetable.resx">
+      <DependentUpon>202103311407194_UpdatedPackagetable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

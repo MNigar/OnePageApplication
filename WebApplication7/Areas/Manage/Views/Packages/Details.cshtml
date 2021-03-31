@@ -1,0 +1,74 @@
+﻿@model WebApplication7.DbModel.Package
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Package</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Price.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PacketPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PacketPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiskSpace)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiskSpace)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Support)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Support)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DomainCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DomainCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

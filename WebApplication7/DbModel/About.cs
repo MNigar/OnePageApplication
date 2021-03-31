@@ -11,13 +11,13 @@ namespace WebApplication7.DbModel
 
         [Key]
         public int Id { get; set; }
-        [MaxLength(20)]
+        [MaxLength(50)]
         [MinLength(5)]
         public string Title { get; set; }
-        [MaxLength(20)]
+        [MaxLength(50)]
         [MinLength(5)]
         public string PreTitle { get; set; }
-        [MaxLength(20)]
+        [MaxLength(100)]
         [MinLength(5)]
         public string Text { get; set; }
         [MaxLength(255)]
