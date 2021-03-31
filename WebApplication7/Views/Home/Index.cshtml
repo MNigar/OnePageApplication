@@ -1,7 +1,6 @@
-﻿
-@{
-    Layout = null;
-}
+﻿@model WebApplication7. Model.ViewModel.HomeViewModel
+@Layout=null;
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -172,27 +171,40 @@
     <section class="features">
         <div class="container">
             <div class="row">
-
-
                 <div class="feat-container">
+                    @foreach (var fitem in Model.Feature)
+                    {
 
-                    <div class="col-md-4 feature-box">
-                        <span class="icon icon-genius"></span>
-                        <h3>Modern Coding</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                    </div>
-                    <div class="col-md-4 feature-box">
-                        <span class="icon icon-tools"></span>
-                        <h3>User Experience</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                    </div>
-                    <div class="col-md-4 feature-box">
-                        <span class="icon icon-beaker"></span>
-                        <h3>Web Optimization</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                    </div>
+                        <div class="col-md-4 feature-box">
+                            <span class="icon icon-@fitem.Icon"></span>
+                            <h3>@fitem.Name</h3>
+                            <p>@fitem.Description</p>
+                        </div>
+                    }
+
+
+
 
                 </div>
+
+               
+
+                    @*<div class="col-md-4 feature-box">
+                <span class="icon icon-genius"></span>
+                <h3>Modern Coding</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+            </div>
+            <div class="col-md-4 feature-box">
+                <span class="icon icon-tools"></span>
+                <h3>User Experience</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+            </div>
+            <div class="col-md-4 feature-box">
+                <span class="icon icon-beaker"></span>
+                <h3>Web Optimization</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+            </div>*@
+
 
 
             </div>

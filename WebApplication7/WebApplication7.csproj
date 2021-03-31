@@ -126,6 +126,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Manage\Controllers\FeaturesController.cs" />
     <Compile Include="Areas\Manage\Controllers\HomeController.cs" />
     <Compile Include="Areas\Manage\Controllers\IconsController.cs" />
     <Compile Include="Areas\Manage\Controllers\MenusController.cs" />
@@ -171,6 +172,7 @@
       <DependentUpon>202103310706317_updatesocialmediatable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\ViewModel\HomeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2088,6 +2090,11 @@
     <Content Include="Areas\Manage\Views\Icons\Details.cshtml" />
     <Content Include="Areas\Manage\Views\Icons\Edit.cshtml" />
     <Content Include="Areas\Manage\Views\Icons\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Features\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Features\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Features\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Features\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Features\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -4054,7 +4061,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Manage\Data\" />
     <Folder Include="Areas\Manage\Views\Home\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

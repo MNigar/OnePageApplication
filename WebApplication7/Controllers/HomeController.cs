@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication7.Db;
-
+using WebApplication7.Model.ViewModel;
+using WebApplication7.DbModel;
 namespace WebApplication7.Controllers
 {
     public class HomeController : Controller
@@ -16,7 +17,9 @@ namespace WebApplication7.Controllers
             ViewBag.Menus = db.Menus.ToList().Where(x=>x.IsVisible).OrderBy(x=>x.Orderby);
             ViewBag.Setting = db.Settings.FirstOrDefault();
             ViewBag.SocialMedia = db.SocialMedias.ToList();
-            return View();
+            HomeViewModel model = new HomeViewModel();
+            model.Feature = db.Features.ToList();
+            return View(model);
         }
 
         public ActionResult About()
