@@ -100,7 +100,7 @@
 
 
     <!-- =========    HEADER START    ======== -->
-    <section class="s-header" id="home" data-scroll-index="0">
+    <section class="s-header" id="home" data-scroll-index="0" style="background:url(/Templates/escanordemo/img/@ViewBag.Setting.IntroPhoto)">
         <div class="header-overlay">
 
 
@@ -119,7 +119,7 @@
                             <!-- logo -->
                             <a class="logo navbar-brand" href="#home" data-scroll-nav="0">
 
-                                <span>Escanor</span>
+                                <span>@ViewBag.Setting.Logo</span>
 
                             </a>
                         </div>
@@ -137,12 +137,12 @@
 
                                 }
                                 @*<li><a href="#home" data-scroll-nav="0" class="active">Home</a></li>
-                                    <li><a href="#about" data-scroll-nav="1">About</a></li>
-                                    <li><a href="#services" data-scroll-nav="2">Services</a></li>
-                                    <li><a href="#work" data-scroll-nav="3">Work</a></li>
-                                    <li><a href="#price" data-scroll-nav="4">Price</a></li>
-                                    <li><a href="#blog" data-scroll-nav="5">Blog</a></li>
-                                    <li><a href="#contact" data-scroll-nav="6">Contact</a></li>*@
+                                <li><a href="#about" data-scroll-nav="1">About</a></li>
+                                <li><a href="#services" data-scroll-nav="2">Services</a></li>
+                                <li><a href="#work" data-scroll-nav="3">Work</a></li>
+                                <li><a href="#price" data-scroll-nav="4">Price</a></li>
+                                <li><a href="#blog" data-scroll-nav="5">Blog</a></li>
+                                <li><a href="#contact" data-scroll-nav="6">Contact</a></li>*@
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </div>
@@ -153,8 +153,8 @@
             <div class="middle-c text-center">
                 <div class="capt">
 
-                    <h1>Welcome To Escanor</h1>
-                    <h3>We Are Escanor Company Creative Websites , Branding , Marketing</h3>
+                    <h1> @ViewBag.Setting.Title</h1>
+                    <h3> @ViewBag.Setting.SubTitle</h3>
 
                     <!-- Buttons -->
                     <div class="header-btn">
@@ -1004,19 +1004,19 @@
                     <div class="item col-md-4">
                         <span class="icon icon-map-pin"></span>
                         <h5>Upper Level, Overseas Passenger</h5>
-                        <h5>Terminal, The Rocks, Sydney 2000</h5>
+                        <h5>@ViewBag.Setting.Address</h5>
                     </div>
 
                     <div class="item col-md-4">
                         <span class="icon icon-mobile"></span>
                         <h5>Any time. We are open 24/7</h5>
-                        <h5>+1 (123) 456-7899</h5>
+                        <h5>@ViewBag.Setting.PhoneNumber</h5>
                     </div>
 
                     <div class="item col-md-4">
                         <span class="icon icon-envelope"></span>
                         <h5>Best support via email</h5>
-                        <h5>no-reply@domain.com</h5>
+                        <h5>@ViewBag.Setting.Email</h5>
                     </div>
 
 
@@ -1068,42 +1068,23 @@
 
                 <!-- SOCIAL ICONS -->
                 <div class="sc-icon">
-                    <a href="#0">
-                        <span>
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                    <a href="#0">
-                        <span>
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                    <a href="#0">
-                        <span>
-                            <i class="fa fa-behance" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                    <a href="#0">
-                        <span>
-                            <i class="fa fa-vimeo" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                    <a href="#0">
-                        <span>
-                            <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                    <a href="#0">
-                        <span>
-                            <i class="fa fa-instagram" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                </div>
+                    @foreach (var item in ViewBag.SocialMedia)
+                    {
+                        <a href="@item.Link">
+
+                            <span>
+                                <i class="fa fa-@item.Icon.Icons " aria-hidden="true"></i>
+                            </span>
+                        </a>
+                        
+                    }
+                    
+                    </div>
 
 
                 <!-- START RIGHTS -->
                 <div class="sub-footer">
-                    <span>Copy Right © By Joker-Themes 2018 | All Rights Reserved.</span>
+                    <span>@ViewBag.Setting.SubFooterText</span>
                 </div>
 
 

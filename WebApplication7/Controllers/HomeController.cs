@@ -13,7 +13,9 @@ namespace WebApplication7.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Menus = db.Menus.ToList().OrderBy(x=>x.Orderby);
+            ViewBag.Menus = db.Menus.ToList().Where(x=>x.IsVisible).OrderBy(x=>x.Orderby);
+            ViewBag.Setting = db.Settings.FirstOrDefault();
+            ViewBag.SocialMedia = db.SocialMedias.ToList();
             return View();
         }
 

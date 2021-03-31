@@ -168,3 +168,6 @@ C:\Users\Nigar\source\repos\WebApplication7\WebApplication7\obj\Debug\WebApplica
 C:\Users\Nigar\source\repos\WebApplication7\WebApplication7\obj\Debug\WebApplication7.csproj.CopyComplete
 C:\Users\Nigar\source\repos\WebApplication7\WebApplication7\obj\Debug\WebApplication7.dll
 C:\Users\Nigar\source\repos\WebApplication7\WebApplication7\obj\Debug\WebApplication7.pdb
+D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.updatedsocalmediatable.resources
+D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.addedicontable.resources
+D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.updatesocialmediatable.resources

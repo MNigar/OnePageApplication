@@ -127,10 +127,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Manage\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Manage\Controllers\IconsController.cs" />
     <Compile Include="Areas\Manage\Controllers\MenusController.cs" />
+    <Compile Include="Areas\Manage\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\SocialMediasController.cs" />
     <Compile Include="Areas\Manage\Controllers\UserController.cs" />
     <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DbModel\Icon.cs" />
     <Compile Include="Db\EscanorContext.cs" />
     <Compile Include="DbModel\About.cs" />
     <Compile Include="DbModel\BaseClass.cs" />
@@ -153,6 +157,18 @@
     <Compile Include="Migrations\202103301416114_addedtables.cs" />
     <Compile Include="Migrations\202103301416114_addedtables.designer.cs">
       <DependentUpon>202103301416114_addedtables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103310646027_updatedsocalmediatable.cs" />
+    <Compile Include="Migrations\202103310646027_updatedsocalmediatable.Designer.cs">
+      <DependentUpon>202103310646027_updatedsocalmediatable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103310655211_addedicontable.cs" />
+    <Compile Include="Migrations\202103310655211_addedicontable.Designer.cs">
+      <DependentUpon>202103310655211_addedicontable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103310706317_updatesocialmediatable.cs" />
+    <Compile Include="Migrations\202103310706317_updatesocialmediatable.Designer.cs">
+      <DependentUpon>202103310706317_updatesocialmediatable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2057,6 +2073,21 @@
     <Content Include="Areas\Manage\Views\Menus\Details.cshtml" />
     <Content Include="Areas\Manage\Views\Menus\Edit.cshtml" />
     <Content Include="Areas\Manage\Views\Menus\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Settings\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Settings\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Settings\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Settings\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Settings\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\SocialMedias\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\SocialMedias\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\SocialMedias\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\SocialMedias\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\SocialMedias\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Icons\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Icons\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Icons\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Icons\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Icons\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -4041,6 +4072,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202103301416114_addedtables.resx">
       <DependentUpon>202103301416114_addedtables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103310646027_updatedsocalmediatable.resx">
+      <DependentUpon>202103310646027_updatedsocalmediatable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103310655211_addedicontable.resx">
+      <DependentUpon>202103310655211_addedicontable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103310706317_updatesocialmediatable.resx">
+      <DependentUpon>202103310706317_updatesocialmediatable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

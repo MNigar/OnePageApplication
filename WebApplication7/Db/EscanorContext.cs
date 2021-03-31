@@ -27,6 +27,8 @@ namespace WebApplication7.Db
         public virtual DbSet<Setting> Settings { get; set; }
         public virtual DbSet<Skill> Skills { get; set; }
         public virtual DbSet<SocialMedia> SocialMedias { get; set; }
+        public virtual DbSet<Icon> Icons { get; set; }
+
 
     }
 }

@@ -7,7 +7,10 @@ using System.Web;
 namespace WebApplication7.DbModel
 {
     public class Setting
-    {
+    {   public Setting()
+        {
+            SocialMedia = new List<SocialMedia>();
+        }
         [Key]
         public int Id { get; set; }
         [MaxLength(200)]
@@ -20,5 +23,6 @@ namespace WebApplication7.DbModel
         public string Address { get; set; }
         public string SubFooterText { get; set; }
         public string IntroPhoto { get; set; }
+        public virtual List<SocialMedia> SocialMedia { get; set; }
     }
 }
