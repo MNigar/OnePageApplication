@@ -369,9 +369,19 @@
 
                     <!-- SKILLS START -->
                     <div class="skills">
+                        @foreach(var skill in Model.Skills)
+                        {<div class="single_progress_bar col-md-12">
+                            <h2> @skill.Name- @skill.Point%</h2>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="@skill.Point" aria-valuemin="0" aria-valuemax="100" style="width: @skill.Point%;">
+                                    <span class="sr-only">@skill.Point% Complete</span>
+                                </div>
+                            </div>
+                        </div>
 
-                        <div class="single_progress_bar col-md-12">
-                            <h2>HTML5 & CSS3 - 90%</h2>
+                        }
+                        @*<div class="single_progress_bar col-md-12">
+                            <h2> - 90%</h2>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
                                     <span class="sr-only">60% Complete</span>
@@ -401,7 +411,7 @@
                                     <span class="sr-only">60% Complete</span>
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
 
                     </div>
                     <!-- SKILLS END -->
@@ -429,44 +439,50 @@
 
                 <!-- WORK FILTER BUTTONS -->
                 <div class="button-group filter-work">
-                    <a class="button is-checked" data-filter="*">All</a>
+                    @foreach(var category in Model.Categories)
+                    {                    
+                        <a class="button " data-filter=".item-@category.Name.ToLower().Replace(" ","_")">@category.Name</a>
+
+                    }
+                    @*<a class="button is-checked" data-filter="*">All</a>
                     <a class="button " data-filter=".item-branding">Branding</a>
                     <a class="button" data-filter=".item-mobile">Mobile</a>
                     <a class="button" data-filter=".item-userexperience">User Experience</a>
-                    <a class="button" data-filter=".item-webdesign">Web Design</a>
+                    <a class="button" data-filter=".item-webdesign">Web Design</a>*@
                 </div>
                 <!-- END WORK FILTER BUTTONS -->
                 <!-- WORK CONTENT START -->
                 <div class="work-content">
 
-
-                    <!-- WORK ITEM -->
-                    <div class="work-item item-branding">
+                    @foreach(var project in Model.Projects)
+                   
+                        { 
+                    <div class="work-item item-@project.Category.Name.ToLower().Replace(" ","_")">
                         <div class="work-caption">
-                            <a class="modal-image" href="#modal-image-1">
+                            <a class="modal-image" href="#modal-image-@project.Id">
 
                                 <!-- WORK IMAGE -->
-                                <img src="~/Templates/escanordemo/img/portfolio/1.jpg" alt="Image Title" />
+                                <img src="~/Templates/escanordemo/img/portfolio/@project.Photo" alt="Image Title" />
 
                                 <!-- WORK TITLE -->
                                 <div class="overlay">
                                     <div class="info-content">
-                                        <h4>Project Title</h4>
+                                        <h4>@project.Name</h4>
                                     </div>
                                 </div>
 
                                 <!-- POPUP WHITE BOX -->
-                                <div id="modal-image-1" class="white-popup mfp-hide">
+                                <div id="modal-image-@project.Id" class="white-popup mfp-hide">
 
                                     <!-- POPUP WHITE BOX IMAGE -->
-                                    <img src="~/Templates/escanordemo/img/portfolio/1.jpg" alt="Image Title" />
+                                    <img src="~/Templates/escanordemo/img/portfolio/@project.Photo" alt="Image Title" />
 
                                     <div>
                                         <!-- POPUP WHITE BOX TITLE -->
-                                        <h3>PROJECT TITLE</h3>
+                                        <h3>@project.Name</h3>
 
                                         <!-- POPUP WHITE BOX DESCRIPTION -->
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
+                                        <p>@project.Description</p>
                                     </div>
                                 </div>
                                 <!-- END POPUP WHITE BOX -->
@@ -474,181 +490,181 @@
                             </a>
                         </div>
                     </div>
-
+                    }
                     <!-- WORK ITEM -->
-                    <div class="work-item item-mobile">
+                    <!--<div class="work-item item-mobile">
                         <div class="work-caption">
-                            <a class="modal-image" href="#modal-image-2">
+                            <a class="modal-image" href="#modal-image-2">-->
 
                                 <!-- WORK IMAGE -->
-                                <img src="~/Templates/escanordemo/img/portfolio/2.jpg" alt="Image Title" />
+                                <!--<img src="~/Templates/escanordemo/img/portfolio/2.jpg" alt="Image Title" />-->
 
                                 <!-- WORK TITLE -->
-                                <div class="overlay">
+                                <!--<div class="overlay">
                                     <div class="info-content">
                                         <h4>Project Title</h4>
                                     </div>
-                                </div>
+                                </div>-->
 
                                 <!-- POPUP WHITE BOX -->
-                                <div id="modal-image-2" class="white-popup mfp-hide">
+                                <!--<div id="modal-image-2" class="white-popup mfp-hide">-->
 
                                     <!-- POPUP WHITE BOX IMAGE -->
-                                    <img src="~/Templates/escanordemo/img/portfolio/2.jpg" alt="Image Title" />
+                                    <!--<img src="~/Templates/escanordemo/img/portfolio/2.jpg" alt="Image Title" />
 
-                                    <div>
+                                    <div>-->
                                         <!-- POPUP WHITE BOX TITLE -->
-                                        <h3>PROJECT TITLE</h3>
+                                        <!--<h3>PROJECT TITLE</h3>-->
 
                                         <!-- POPUP WHITE BOX DESCRIPTION -->
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
+                                        <!--<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
                                     </div>
-                                </div>
+                                </div>-->
                                 <!-- END POPUP WHITE BOX -->
 
-                            </a>
+                            <!--</a>
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- WORK ITEM -->
-                    <div class="work-item item-mobile">
+                    <!--<div class="work-item item-mobile">
                         <div class="work-caption">
-                            <a class="modal-image" href="#modal-image-3">
+                            <a class="modal-image" href="#modal-image-3">-->
 
                                 <!-- WORK IMAGE -->
-                                <img src="~/Templates/escanordemo/img/portfolio/3.jpg" alt="Image Title" />
+                                <!--<img src="~/Templates/escanordemo/img/portfolio/3.jpg" alt="Image Title" />-->
 
                                 <!-- WORK TITLE -->
-                                <div class="overlay">
+                                <!--<div class="overlay">
                                     <div class="info-content">
                                         <h4>Project Title</h4>
                                     </div>
-                                </div>
+                                </div>-->
 
                                 <!-- POPUP WHITE BOX -->
-                                <div id="modal-image-3" class="white-popup mfp-hide">
+                                <!--<div id="modal-image-3" class="white-popup mfp-hide">-->
 
                                     <!-- POPUP WHITE BOX IMAGE -->
-                                    <img src="~/Templates/escanordemo/img/portfolio/3.jpg" alt="Image Title" />
+                                    <!--<img src="~/Templates/escanordemo/img/portfolio/3.jpg" alt="Image Title" />
 
-                                    <div>
+                                    <div>-->
                                         <!-- POPUP WHITE BOX TITLE -->
-                                        <h3>PROJECT TITLE</h3>
+                                        <!--<h3>PROJECT TITLE</h3>-->
 
                                         <!-- POPUP WHITE BOX DESCRIPTION -->
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
+                                        <!--<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
                                     </div>
-                                </div>
+                                </div>-->
                                 <!-- END POPUP WHITE BOX -->
 
-                            </a>
+                            <!--</a>
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- WORK ITEM -->
-                    <div class="work-item item-userexperience">
+                    <!--<div class="work-item item-userexperience">
                         <div class="work-caption">
-                            <a class="modal-image" href="#modal-image-4">
+                            <a class="modal-image" href="#modal-image-4">-->
 
                                 <!-- WORK IMAGE -->
-                                <img src="~/Templates/escanordemo/img/portfolio/4.jpg" alt="Image Title" />
+                                <!--<img src="~/Templates/escanordemo/img/portfolio/4.jpg" alt="Image Title" />-->
 
                                 <!-- WORK TITLE -->
-                                <div class="overlay">
+                                <!--<div class="overlay">
                                     <div class="info-content">
                                         <h4>Project Title</h4>
                                     </div>
-                                </div>
+                                </div>-->
 
                                 <!-- POPUP WHITE BOX -->
-                                <div id="modal-image-4" class="white-popup mfp-hide">
+                                <!--<div id="modal-image-4" class="white-popup mfp-hide">-->
 
                                     <!-- POPUP WHITE BOX IMAGE -->
-                                    <img src="~/Templates/escanordemo/img/portfolio/4.jpg" alt="Image Title" />
+                                    <!--<img src="~/Templates/escanordemo/img/portfolio/4.jpg" alt="Image Title" />
 
-                                    <div>
+                                    <div>-->
                                         <!-- POPUP WHITE BOX TITLE -->
-                                        <h3>PROJECT TITLE</h3>
+                                        <!--<h3>PROJECT TITLE</h3>-->
 
                                         <!-- POPUP WHITE BOX DESCRIPTION -->
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
+                                        <!--<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
                                     </div>
-                                </div>
+                                </div>-->
                                 <!-- END POPUP WHITE BOX -->
 
-                            </a>
+                            <!--</a>
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- WORK ITEM -->
-                    <div class="work-item item-webdesign">
+                    <!--<div class="work-item item-webdesign">
                         <div class="work-caption">
-                            <a class="modal-image" href="#modal-image-5">
+                            <a class="modal-image" href="#modal-image-5">-->
 
                                 <!-- WORK IMAGE -->
-                                <img src="~/Templates/escanordemo/img/portfolio/5.jpg" alt="Image Title" />
+                                <!--<img src="~/Templates/escanordemo/img/portfolio/5.jpg" alt="Image Title" />-->
 
                                 <!-- WORK TITLE -->
-                                <div class="overlay">
+                                <!--<div class="overlay">
                                     <div class="info-content">
                                         <h4>Project Title</h4>
                                     </div>
-                                </div>
+                                </div>-->
 
                                 <!-- POPUP WHITE BOX -->
-                                <div id="modal-image-5" class="white-popup mfp-hide">
+                                <!--<div id="modal-image-5" class="white-popup mfp-hide">-->
 
                                     <!-- POPUP WHITE BOX IMAGE -->
-                                    <img src="~/Templates/escanordemo/img/portfolio/5.jpg" alt="Image Title" />
+                                    <!--<img src="~/Templates/escanordemo/img/portfolio/5.jpg" alt="Image Title" />
 
-                                    <div>
+                                    <div>-->
                                         <!-- POPUP WHITE BOX TITLE -->
-                                        <h3>PROJECT TITLE</h3>
+                                        <!--<h3>PROJECT TITLE</h3>-->
 
                                         <!-- POPUP WHITE BOX DESCRIPTION -->
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
+                                        <!--<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
                                     </div>
-                                </div>
+                                </div>-->
                                 <!-- END POPUP WHITE BOX -->
 
-                            </a>
+                            <!--</a>
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- WORK ITEM -->
-                    <div class="work-item item-branding">
+                    <!--<div class="work-item item-branding">
                         <div class="work-caption">
-                            <a class="modal-image" href="#modal-image-6">
+                            <a class="modal-image" href="#modal-image-6">-->
 
                                 <!-- WORK IMAGE -->
-                                <img src="~/Templates/escanordemo/img/portfolio/7.jpg" alt="Image Title" />
+                                <!--<img src="~/Templates/escanordemo/img/portfolio/7.jpg" alt="Image Title" />-->
 
                                 <!-- WORK TITLE -->
-                                <div class="overlay">
+                                <!--<div class="overlay">
                                     <div class="info-content">
                                         <h4>Project Title</h4>
                                     </div>
-                                </div>
+                                </div>-->
 
                                 <!-- POPUP WHITE BOX -->
-                                <div id="modal-image-6" class="white-popup mfp-hide">
+                                <!--<div id="modal-image-6" class="white-popup mfp-hide">-->
 
                                     <!-- POPUP WHITE BOX IMAGE -->
-                                    <img src="~/Templates/escanordemo/img/portfolio/7.jpg" alt="Image Title" />
+                                    <!--<img src="~/Templates/escanordemo/img/portfolio/7.jpg" alt="Image Title" />
 
-                                    <div>
+                                    <div>-->
                                         <!-- POPUP WHITE BOX TITLE -->
-                                        <h3>PROJECT TITLE</h3>
+                                        <!--<h3>PROJECT TITLE</h3>-->
 
                                         <!-- POPUP WHITE BOX DESCRIPTION -->
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
+                                        <!--<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
                                     </div>
-                                </div>
+                                </div>-->
                                 <!-- END POPUP WHITE BOX -->
 
-                            </a>
+                            <!--</a>
                         </div>
-                    </div>
+                    </div>-->
 
 
                 </div>

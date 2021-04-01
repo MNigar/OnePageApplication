@@ -23,7 +23,9 @@ namespace WebApplication7.Controllers
             model.Service = db.Services.FirstOrDefault();
             model.ServiceComponent = db.ServiceComponents.ToList();
             model.Price = db.Prices.FirstOrDefault();
-
+            model.Skills = db.Skills.ToList();
+            model.Categories = db.Categories.ToList();
+            model.Projects = db.Projects.ToList();
             return View(model);
         }
 

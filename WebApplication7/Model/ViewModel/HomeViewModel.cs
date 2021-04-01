@@ -13,6 +13,8 @@ namespace WebApplication7.Model.ViewModel
         public Service Service { get; set; }
         public List<ServiceComponent> ServiceComponent { get; set; }
         public Price Price { get; set; }
-        
+        public List<Skill> Skills { get; set; }
+        public List<Category> Categories { get; set; }
+        public List<Project> Projects { get; set; }
     }
 }
