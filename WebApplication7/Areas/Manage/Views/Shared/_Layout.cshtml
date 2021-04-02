@@ -100,7 +100,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <!--<li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                    aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
@@ -118,7 +118,7 @@
                         <a class="collapse-item" href="blank.html">Blank Page</a>
                     </div>
                 </div>
-            </li>
+            </li>-->
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
@@ -127,19 +127,78 @@
                     <span>Menu</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index","Features")">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Feature</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index","Posts")">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Post</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index","Icons")">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Icons</span>
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("Index","Settings")">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Setting</span>
                 </a>
             </li>
-            <!-- Nav Item - Tables -->
+
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span>
+                <a class="nav-link" href="@Url.Action("Index","SocialMedias")">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Setting-SocialMedias</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index","Prices")">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Prices</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index","Packages")">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Package-Price</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index","Skills")">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Skills</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index","Projects")">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index","Services")">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Services</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index","ServiceComponents")">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>ServiceComponents</span>
+                </a>
+            </li>
+            <!-- Nav Item - Tables -->
+    
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -363,10 +422,11 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a  href="@Url.Action("Logout","User")" >
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
+                                
                             </div>
                         </li>
 

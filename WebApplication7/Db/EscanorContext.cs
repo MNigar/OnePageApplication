@@ -29,7 +29,7 @@ namespace WebApplication7.Db
         public virtual DbSet<Skill> Skills { get; set; }
         public virtual DbSet<SocialMedia> SocialMedias { get; set; }
         public virtual DbSet<Icon> Icons { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
-      
     }
 }

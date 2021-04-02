@@ -1,5 +1,4 @@
 ﻿@model WebApplication7. Model.ViewModel.HomeViewModel
-@{Layout = null;}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -121,6 +120,11 @@
                                 <span>@ViewBag.Setting.Logo</span>
 
                             </a>
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <a href="@Url.Action("Logout","Home")" class="btn btn-success">Logout</a>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Collect the nav links, and other content for toggling -->
@@ -912,144 +916,140 @@
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
                 </div>
 
+                @foreach (var post in Model.Posts)
+                {
 
-                <!-- START BLOG POST -->
-                <div class="col-md-4 blog-box">
-                    <div class="blog-item">
+                    <!-- START BLOG POST -->
+                    <div class="col-md-4 blog-box">
+                        <div class="blog-item">
 
-                        <!-- BLOG IMAGE -->
-                        <div class="feature-box-img" style="background-image: url('/Templates/escanordemo/img/blog-img-1.jpg');">
-                            <div class="blog-overlay"></div>
-                        </div>
+                            <!-- BLOG IMAGE -->
+                            <div class="feature-box-img" style="background-image: url('/Templates/escanordemo/img/@post.Photo');">
+                                <div class="blog-overlay"></div>
+                            </div>
 
-                        <!-- CATEGORY AND TIME OF THE POST -->
-                        <ul class="info">
-                            <li class="category">
-                                <a href="#0">
-                                    <i class="fa fa-tags"></i>
-                                    <span>Mobile</span>
-                                </a>
-                            </li>
-                            <li class="time">
-                                <a href="#0">
-                                    <i class="fa fa-calendar-o"></i>
-                                    <span>7 jul 2017</span>
-                                </a>
-                            </li>
-                        </ul>
+                            <!-- CATEGORY AND TIME OF THE POST -->
+                            <ul class="info">
+                                <li class="category">
+                                    <a href="#0">
+                                        <i class="fa fa-tags"></i>
+                                        <span>@post.Tag</span>
+                                    </a>
+                                </li>
+                                <li class="time">
+                                    <a href="#0">
+                                        <i class="fa fa-calendar-o"></i>
+                                        <span>@post.Date</span>
+                                    </a>
+                                </li>
+                            </ul>
 
-                        <!-- POST TITLTE -->
-                        <a href="#0">
-                            <h4>Bootstrap is the Most Popular Framework</h4>
-                        </a>
-
-                        <!-- POST CONTENT-->
-                        <p>
-                            Fusce vitae nulla at lorem pret ium semper. Curab itur laoreet, lectus ac digni ssim vest ibul lorem pretium semper lectus ac digni ...
-                        </p>
-
-                        <!-- POST LINK -->
-                        <div class="post-link">
+                            <!-- POST TITLTE -->
                             <a href="#0">
-                                Read More
-                                <i class="fa fa-angle-double-right"></i>
+                                <h4>@post.Title</h4>
                             </a>
-                        </div>
 
+                            <!-- POST CONTENT-->
+                            <p>
+                                @post.Text
+                            </p>
+
+                            <!-- POST LINK -->
+                            <div class="post-link">
+                                <a href="#0">
+                                    Read More
+                                    <i class="fa fa-angle-double-right"></i>
+                                </a>
+                            </div>
+
+                        </div>
                     </div>
-                </div>
+                    <!-- END BLOG POST -->
+
+
+                }
+                <!-- START BLOG POST -->
+                <!-- START BLOG POST -->
+                <!--<div class="col-md-4 blog-box">
+        <div class="blog-item">-->
+                <!-- BLOG IMAGE -->
+                <!--<div class="feature-box-img" style="background-image: url('/Templates/escanordemo/img/blog-img-2.jpg');">
+        <div class="blog-overlay"></div>
+    </div>-->
+                <!-- CATEGORY AND TIME OF THE POST -->
+                <!--<ul class="info">
+        <li class="category">
+            <a href="#0">
+                <i class="fa fa-tags"></i>
+                <span>Wordpress</span>
+            </a>
+        </li>
+        <li class="time">
+            <a href="#0">
+                <i class="fa fa-calendar-o"></i>
+                <span>6 May 2017</span>
+            </a>
+        </li>
+    </ul>-->
+                <!-- POST TITLTE -->
+                <!--<a href="#0">
+        <h4>Best Original Web Layouts</h4>
+    </a>-->
+                <!-- POST CONTENT-->
+                <!--<p>
+        Fusce vitae nulla at lorem pret ium semper. Curab itur laoreet, lectus ac digni ssim vest ibul lorem pretium semper lectus ac digni ...
+    </p>-->
+                <!-- POST LINK -->
+                <!--<div class="post-link">
+                <a href="#0">
+                    Read More
+                    <i class="fa fa-angle-double-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>-->
                 <!-- END BLOG POST -->
                 <!-- START BLOG POST -->
-                <div class="col-md-4 blog-box">
-                    <div class="blog-item">
+                <!--<div class="col-md-4 blog-box">
+        <div class="blog-item">-->
+                <!-- BLOG IMAGE -->
+                <!--<div class="feature-box-img" style="background-image: url('/Templates/escanordemo/img/blog-img-3.jpg');">
+        <div class="blog-overlay"></div>
+    </div>-->
+                <!-- CATEGORY AND TIME OF THE POST -->
+                <!--<ul class="info">
+        <li class="category">
+            <a href="#0">
+                <i class="fa fa-tags"></i>
+                <span>UX</span>
+            </a>
+        </li>
+        <li class="time">
+            <a href="#0">
+                <i class="fa fa-calendar-o"></i>
+                <span>15 apr 2017</span>
+            </a>
+        </li>
+    </ul>-->
+                <!-- POST TITLTE -->
+                <!--<a href="#0">
+        <h4>Designed for Everyone, Everywhere</h4>
+    </a>-->
+                <!-- POST CONTENT-->
+                <!--<p>
+        Fusce vitae nulla at lorem pret ium semper. Curab itur laoreet, lectus ac digni ssim vest ibul lorem pretium semper lectus ac digni ...
+    </p>-->
+                <!-- POST LINK -->
+                <!--<div class="post-link">
+                <a href="#0">
+                    Read More
+                    <i class="fa fa-angle-double-right"></i>
+                </a>
+            </div>
 
-                        <!-- BLOG IMAGE -->
-                        <div class="feature-box-img" style="background-image: url('/Templates/escanordemo/img/blog-img-2.jpg');">
-                            <div class="blog-overlay"></div>
-                        </div>
-
-                        <!-- CATEGORY AND TIME OF THE POST -->
-                        <ul class="info">
-                            <li class="category">
-                                <a href="#0">
-                                    <i class="fa fa-tags"></i>
-                                    <span>Wordpress</span>
-                                </a>
-                            </li>
-                            <li class="time">
-                                <a href="#0">
-                                    <i class="fa fa-calendar-o"></i>
-                                    <span>6 May 2017</span>
-                                </a>
-                            </li>
-                        </ul>
-
-                        <!-- POST TITLTE -->
-                        <a href="#0">
-                            <h4>Best Original Web Layouts</h4>
-                        </a>
-
-                        <!-- POST CONTENT-->
-                        <p>
-                            Fusce vitae nulla at lorem pret ium semper. Curab itur laoreet, lectus ac digni ssim vest ibul lorem pretium semper lectus ac digni ...
-                        </p>
-
-                        <!-- POST LINK -->
-                        <div class="post-link">
-                            <a href="#0">
-                                Read More
-                                <i class="fa fa-angle-double-right"></i>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- END BLOG POST -->
-                <!-- START BLOG POST -->
-                <div class="col-md-4 blog-box">
-                    <div class="blog-item">
-
-                        <!-- BLOG IMAGE -->
-                        <div class="feature-box-img" style="background-image: url('/Templates/escanordemo/img/blog-img-3.jpg');">
-                            <div class="blog-overlay"></div>
-                        </div>
-
-                        <!-- CATEGORY AND TIME OF THE POST -->
-                        <ul class="info">
-                            <li class="category">
-                                <a href="#0">
-                                    <i class="fa fa-tags"></i>
-                                    <span>UX</span>
-                                </a>
-                            </li>
-                            <li class="time">
-                                <a href="#0">
-                                    <i class="fa fa-calendar-o"></i>
-                                    <span>15 apr 2017</span>
-                                </a>
-                            </li>
-                        </ul>
-
-                        <!-- POST TITLTE -->
-                        <a href="#0">
-                            <h4>Designed for Everyone, Everywhere</h4>
-                        </a>
-
-                        <!-- POST CONTENT-->
-                        <p>
-                            Fusce vitae nulla at lorem pret ium semper. Curab itur laoreet, lectus ac digni ssim vest ibul lorem pretium semper lectus ac digni ...
-                        </p>
-
-                        <!-- POST LINK -->
-                        <div class="post-link">
-                            <a href="#0">
-                                Read More
-                                <i class="fa fa-angle-double-right"></i>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
+        </div>
+    </div>-->
                 <!-- END BLOG POST -->
 
 

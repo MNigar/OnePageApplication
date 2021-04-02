@@ -16,5 +16,6 @@ namespace WebApplication7.Model.ViewModel
         public List<Skill> Skills { get; set; }
         public List<Category> Categories { get; set; }
         public List<Project> Projects { get; set; }
+        public List<Post> Posts { get; set; }
     }
 }

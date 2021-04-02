@@ -177,3 +177,4 @@ D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrat
 D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.updateservicetabled.resources
 D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.AddedPricetable.resources
 D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.UpdatedPackagetable.resources
+D:\Templates\OnePageApplication\WebApplication7\obj\Debug\WebApplication7.Migrations.AddedUsertable.resources

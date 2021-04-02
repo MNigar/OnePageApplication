@@ -6,8 +6,10 @@ using System.Web.Mvc;
 using WebApplication7.Db;
 using WebApplication7.Model.ViewModel;
 using WebApplication7.DbModel;
+using WebApplication7.Filter;
+
 namespace WebApplication7.Controllers
-{
+{  [Auth]
     public class HomeController : Controller
     {
         private EscanorContext db = new EscanorContext();
@@ -26,9 +28,16 @@ namespace WebApplication7.Controllers
             model.Skills = db.Skills.ToList();
             model.Categories = db.Categories.ToList();
             model.Projects = db.Projects.ToList();
+            model.Posts = db.Posts.ToList();
             return View(model);
         }
 
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            Session["email"] = null;
+            return View("~/Areas/Manage/Views/User/Login.cshtml");
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

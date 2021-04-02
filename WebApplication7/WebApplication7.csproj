@@ -133,6 +133,7 @@
     <Compile Include="Areas\Manage\Controllers\IconsController.cs" />
     <Compile Include="Areas\Manage\Controllers\MenusController.cs" />
     <Compile Include="Areas\Manage\Controllers\PackagesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\PostsController.cs" />
     <Compile Include="Areas\Manage\Controllers\PricesController.cs" />
     <Compile Include="Areas\Manage\Controllers\ProjectsController.cs" />
     <Compile Include="Areas\Manage\Controllers\ServiceComponentsController.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DbModel\Icon.cs" />
     <Compile Include="DbModel\Price.cs" />
+    <Compile Include="DbModel\User.cs" />
     <Compile Include="Db\EscanorContext.cs" />
     <Compile Include="DbModel\About.cs" />
     <Compile Include="DbModel\BaseClass.cs" />
@@ -161,6 +163,7 @@
     <Compile Include="DbModel\Setting.cs" />
     <Compile Include="DbModel\Skill.cs" />
     <Compile Include="DbModel\SocialMedia.cs" />
+    <Compile Include="Filter\Auth.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -203,6 +206,10 @@
     <Compile Include="Migrations\202103311407194_UpdatedPackagetable.cs" />
     <Compile Include="Migrations\202103311407194_UpdatedPackagetable.Designer.cs">
       <DependentUpon>202103311407194_UpdatedPackagetable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104020741003_AddedUsertable.cs" />
+    <Compile Include="Migrations\202104020741003_AddedUsertable.Designer.cs">
+      <DependentUpon>202104020741003_AddedUsertable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ViewModel\HomeViewModel.cs" />
@@ -2168,6 +2175,12 @@
     <Content Include="Areas\Manage\Views\Projects\Details.cshtml" />
     <Content Include="Areas\Manage\Views\Projects\Edit.cshtml" />
     <Content Include="Areas\Manage\Views\Projects\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Posts\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Posts\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Posts\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Posts\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Posts\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3938,7 +3951,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -4133,7 +4145,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Manage\Data\" />
-    <Folder Include="Areas\Manage\Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -4178,6 +4189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103311407194_UpdatedPackagetable.resx">
       <DependentUpon>202103311407194_UpdatedPackagetable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104020741003_AddedUsertable.resx">
+      <DependentUpon>202104020741003_AddedUsertable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

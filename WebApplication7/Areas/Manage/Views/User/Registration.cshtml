@@ -1,4 +1,5 @@
-﻿
+﻿@model  WebApplication7.DbModel.User
+
 @{
     Layout = null;
 }
@@ -27,60 +28,69 @@
 </head>
 
 <body class="bg-gradient-primary">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="container">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                        <div class="col-lg-7">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                </div>
+                                <form class="user">
 
-    <div class="container">
+                                    <div class="form-group row">
+                                        <div class="col-sm-8 mb-3 mb-sm-0">
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
-                <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-                    <div class="col-lg-7">
-                        <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
-                            </div>
-                            <form class="user">
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                               placeholder="First Name">
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control form-control-user", @id = "exampleInputEmail", @placeholder = "Email", @required = true,@type="email" } })
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                                        </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                               placeholder="Last Name">
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-8 mb-3 mb-sm-0">
+                                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control form-control-user", @id = "exampleInputPassword", @placeholder = "Password", @required = true ,@type="password"} })
+                                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                                        </div>
+
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                           placeholder="Email Address">
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                               id="exampleInputPassword" placeholder="Password">
+                                    <div class="form-group">
+
+                                        <input type="submit" value="Sign Up" class="form-control btn btn-primary rounded submit px-3" />
+
                                     </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                               id="exampleRepeatPassword" placeholder="Repeat Password">
+                                    <div class="form-group">
+                                        <button type="button" onclick="location.href='@Url.Action("Login", "User")'" class="form-control btn btn-primary rounded submit px-3">Login</button>
+
                                     </div>
-                                </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </a>
+
+                                    <hr>
+                                    @if (Session["RegisterError"] != null)
+                                    {
+                                        <div class="alert alert-danger" role="alert">
+                                            Email already exist
+                                        </div>
+                                        Session["RegisterError"] = null;
+                                    }
+                                </form>
                                 <hr>
-                               
-                            </form>
-                            <hr>
-                            
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-
-    </div>
-
+    }
     <!-- Bootstrap core JavaScript-->
     <script src="~/Areas/Manage/Public/v1/vendor/jquery/jquery.min.js"></script>
     <script src="~/Areas/Manage/Public/v1/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

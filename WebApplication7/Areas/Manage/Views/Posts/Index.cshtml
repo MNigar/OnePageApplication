@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebApplication7.DbModel.Service>
+﻿@model IEnumerable<WebApplication7.DbModel.Post>
 
 @{
     ViewBag.Title = "Index";
@@ -7,12 +7,7 @@
 <h2>Index</h2>
 
 <p>
-   @if(Model.FirstOrDefault() == null){
-
-
     @Html.ActionLink("Create New", "Create")
-    
-    }
 </p>
 <table class="table">
     <tr>
@@ -20,7 +15,16 @@
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SubTitle)
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
         </th>
         <th></th>
     </tr>
@@ -31,7 +35,16 @@
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SubTitle)
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Photo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

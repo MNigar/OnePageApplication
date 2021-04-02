@@ -11,108 +11,107 @@ using WebApplication7.DbModel;
 
 namespace WebApplication7.Areas.Manage.Controllers
 {
-    public class ServicesController : Controller
+    public class PostsController : Controller
     {
         private EscanorContext db = new EscanorContext();
 
-        // GET: Manage/Services
+        // GET: Manage/Posts
         public ActionResult Index()
-        {    
-            return View(db.Services.ToList());
-
+        {
+            return View(db.Posts.ToList());
         }
 
-        // GET: Manage/Services/Details/5
+        // GET: Manage/Posts/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Service service = db.Services.Find(id);
-            if (service == null)
+            Post post = db.Posts.Find(id);
+            if (post == null)
             {
                 return HttpNotFound();
             }
-            return View(service);
+            return View(post);
         }
 
-        // GET: Manage/Services/Create
+        // GET: Manage/Posts/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Manage/Services/Create
+        // POST: Manage/Posts/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,SubTitle")] Service service)
+        public ActionResult Create([Bind(Include = "Id,Title,Date,Photo,Tag,Text")] Post post)
         {
             if (ModelState.IsValid)
-            {   
-                db.Services.Add(service);
+            {
+                db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(service);
+            return View(post);
         }
 
-        // GET: Manage/Services/Edit/5
+        // GET: Manage/Posts/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Service service = db.Services.Find(id);
-            if (service == null)
+            Post post = db.Posts.Find(id);
+            if (post == null)
             {
                 return HttpNotFound();
             }
-            return View(service);
+            return View(post);
         }
 
-        // POST: Manage/Services/Edit/5
+        // POST: Manage/Posts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,SubTitle")] Service service)
+        public ActionResult Edit([Bind(Include = "Id,Title,Date,Photo,Tag,Text")] Post post)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(service).State = EntityState.Modified;
+                db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(service);
+            return View(post);
         }
 
-        // GET: Manage/Services/Delete/5
+        // GET: Manage/Posts/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Service service = db.Services.Find(id);
-            if (service == null)
+            Post post = db.Posts.Find(id);
+            if (post == null)
             {
                 return HttpNotFound();
             }
-            return View(service);
+            return View(post);
         }
 
-        // POST: Manage/Services/Delete/5
+        // POST: Manage/Posts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Service service = db.Services.Find(id);
-            db.Services.Remove(service);
+            Post post = db.Posts.Find(id);
+            db.Posts.Remove(post);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
