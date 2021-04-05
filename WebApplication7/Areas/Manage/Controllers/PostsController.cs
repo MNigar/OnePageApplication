@@ -47,7 +47,7 @@ namespace WebApplication7.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Date,Photo,Tag,Text")] Post post)
+        public ActionResult Create([Bind(Include = "Id,Title,Date,Photo,Tag,Text")] Post post, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
