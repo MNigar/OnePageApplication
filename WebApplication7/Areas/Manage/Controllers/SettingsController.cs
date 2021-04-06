@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,10 +48,27 @@ namespace WebApplication7.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Logo,Title,SubTitle,Email,PhoneNumber,Address,SubFooterText,IntroPhoto")] Setting setting)
-        {
+        public ActionResult Create([Bind(Include = "Id,Logo,Title,SubTitle,Email,PhoneNumber,Address,SubFooterText,IntroPhoto")] Setting setting, HttpPostedFileBase IntroPhoto)
+        {   
+            if( IntroPhoto.ContentLength> 1048576)
+            {
+                Session["imageError"] = "Invalid file size";
+                RedirectToAction("Create");
+            }
+
+            if (IntroPhoto.ContentType != "image/jpeg" && IntroPhoto.ContentType != "image/jpg" && IntroPhoto.ContentType != "image/png")
+            {
+                Session["imageError"] = "File type must be jpg, jpeg, png";
+                RedirectToAction("Create");
+
+
+            }
             if (ModelState.IsValid)
             {
+                string fName = IntroPhoto.FileName;
+                string path = Path.Combine(Server.MapPath("~/Uploads"), fName);
+                IntroPhoto.SaveAs(path);
+                setting.IntroPhoto = fName;
                 db.Settings.Add(setting);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,11 +97,47 @@ namespace WebApplication7.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Logo,Title,SubTitle,Email,PhoneNumber,Address,SubFooterText,IntroPhoto")] Setting setting)
+        public ActionResult Edit([Bind(Include = "Id,Logo,Title,SubTitle,Email,PhoneNumber,Address,SubFooterText,IntroPhoto")] Setting setting, HttpPostedFileBase IntroPhoto)
         {
+            if (IntroPhoto != null)
+            {
+
+
+                if (IntroPhoto.ContentLength > 1048576)
+                {
+                    Session["imageError"] = "Invalid file size";
+                    RedirectToAction("Edit", "Settings", new { id = setting.Id });
+                }
+                if (IntroPhoto.ContentType != "image/jpeg" && IntroPhoto.ContentType != "image/jpg" && IntroPhoto.ContentType != "image/png")
+                {
+                    Session["imageError"] = "File type must be jpg, jpeg, png";
+                    RedirectToAction("Edit", "Settings", new { id = setting.Id });
+                }
+
+
+                string fName = DateTime.Now.ToString("yyMMddHHmmss") + IntroPhoto.FileName;
+                string path = Path.Combine(Server.MapPath("~/Uploads"), fName);
+                IntroPhoto.SaveAs(path);
+                setting.IntroPhoto = fName;
+                Setting currentSetting = db.Settings.Find(setting.Id);
+                System.IO.File.Delete(Path.Combine(Server.MapPath("~/Uploads"), currentSetting.IntroPhoto));
+
+                db.Entry(currentSetting).State = EntityState.Detached;
+
+     
+
+            
+            
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(setting).State = EntityState.Modified;
+                if (IntroPhoto == null)
+                {
+                    db.Entry(setting).Property(p => p.IntroPhoto).IsModified = false;
+                }
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

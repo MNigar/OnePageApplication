@@ -6,7 +6,8 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Settings", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+
 {
     @Html.AntiForgeryToken()
     
@@ -75,8 +76,16 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IntroPhoto, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IntroPhoto, new { htmlAttributes = new { @class = "form-control" } })
+                <input type="image" src="~/Uploads/@Model.IntroPhoto" width="100" height="100" />
+
+                @Html.EditorFor(model => model.IntroPhoto, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
                 @Html.ValidationMessageFor(model => model.IntroPhoto, "", new { @class = "text-danger" })
+                @if (Session["imageError"] != null)
+                {
+                    <span>@Session["imageError"]</span>
+                    Session["imageError"] = null;
+
+                }
             </div>
         </div>
 

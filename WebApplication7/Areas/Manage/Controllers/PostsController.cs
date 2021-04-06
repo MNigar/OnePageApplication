@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -17,7 +18,8 @@ namespace WebApplication7.Areas.Manage.Controllers
 
         // GET: Manage/Posts
         public ActionResult Index()
-        {
+        {   
+            
             return View(db.Posts.ToList());
         }
 
@@ -47,10 +49,28 @@ namespace WebApplication7.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Date,Photo,Tag,Text")] Post post, HttpPostedFileBase file)
-        {
+        public ActionResult Create([Bind(Include = "Id,Title,Date,Photo,Tag,Text")] Post post, HttpPostedFileBase Photo)
+        {     
+            if(Photo.ContentLength> 1048576)
+            {
+                Session["imageError"] = "Invalid file size";
+                RedirectToAction("Create");
+            }
+            if(Photo.ContentType!="image/jpeg" && Photo.ContentType!="image/jpg" && Photo.ContentType!= "image/png")
+            {
+                Session["imageError"] = "File type must be jpg, jpeg, png";
+                RedirectToAction("Create");
+
+
+            }
+
+
             if (ModelState.IsValid)
             {
+                string fName = Photo.FileName;
+                string path = Path.Combine(Server.MapPath("~/Uploads"), fName);
+                Photo.SaveAs(path);
+                post.Photo = fName;
                 db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,11 +99,39 @@ namespace WebApplication7.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Date,Photo,Tag,Text")] Post post)
-        {
+        public ActionResult Edit([Bind(Include = "Id,Title,Date,Photo,Tag,Text")] Post post,HttpPostedFileBase Photo )
+        {   if (Photo != null)
+            {
+
+
+                if (Photo.ContentLength > 1048576)
+                {
+                    Session["imageError"] = "Invalid file size";
+                    RedirectToAction("Edit", "Posts", new { id = post.Id });
+                }
+                if (Photo.ContentType != "image/jpeg" && Photo.ContentType != "image/jpg" && Photo.ContentType != "image/png")
+                {
+                    Session["imageError"] = "File type must be jpg, jpeg, png";
+                    RedirectToAction("Edit", "Posts", new { id = post.Id });
+                }
+
+
+                string fName  = DateTime.Now.ToString("yyMMddHHmmss") + Photo.FileName;
+                string path = Path.Combine(Server.MapPath("~/Uploads"), fName);
+                Photo.SaveAs(path);
+                post.Photo = fName;
+                Post currentPost = db.Posts.Find(post.Id);
+                System.IO.File.Delete(Path.Combine(Server.MapPath("~/Uploads"), currentPost.Photo));
+                db.Entry(currentPost).State = EntityState.Detached;
+
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(post).State = EntityState.Modified;
+                if (Photo == null)
+                {
+                    db.Entry(post).Property(p => p.Photo).IsModified = false;
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

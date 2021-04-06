@@ -68,7 +68,9 @@
             @Html.DisplayFor(modelItem => item.SubFooterText)
         </td>
         <td>
+            <img src="~/Uploads/@item.IntroPhoto" width="100" height="100" />
             @Html.DisplayFor(modelItem => item.IntroPhoto)
+
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

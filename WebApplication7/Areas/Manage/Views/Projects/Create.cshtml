@@ -6,7 +6,7 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Projects", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -17,8 +17,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control", @type = "file", @id = "photo", @onchange = "validateInputeType()" } })
                 @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+                @if (Session["imageError"] != null)
+                {
+                    <span>@Session["imageError"]</span>
+                    Session["imageError"] = null;
+
+                }
             </div>
         </div>
 
@@ -57,3 +63,20 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+<script>
+    function validateInputeType() {
+
+        var fileName = document.getElementById("photo").value;
+        var lastIdex = fileName.lastIndexOf(".") + 1;
+        var extension = fileName.substring(lastIdex, fileName.length).toLowerCase();
+        if (extension == "jpg" || extension == "jpeg" || extension == "png") {
+            alert("duzdur");
+        }
+        else {
+            alert("yalnis");
+        }
+
+    }
+
+
+</script>

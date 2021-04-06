@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -49,10 +50,28 @@ namespace WebApplication7.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Photo,Description,CategoryId,Name")] Project project)
+        public ActionResult Create([Bind(Include = "Id,Photo,Description,CategoryId,Name")] Project project, HttpPostedFileBase Photo)
         {
+            if (Photo.ContentLength > 1048576)
+            {
+                Session["imageError"] = "Invalid file size";
+                RedirectToAction("Create");
+            }
+            if (Photo.ContentType != "image/jpeg" && Photo.ContentType != "image/jpg" && Photo.ContentType != "image/png")
+            {
+                Session["imageError"] = "File type must be jpg, jpeg, png";
+                RedirectToAction("Create");
+
+
+            }
+
+
             if (ModelState.IsValid)
             {
+                string fName = Photo.FileName;
+                string path = Path.Combine(Server.MapPath("~/Uploads"), fName);
+                Photo.SaveAs(path);
+                project.Photo = fName;
                 db.Projects.Add(project);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -83,11 +102,42 @@ namespace WebApplication7.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Photo,Description,CategoryId,Name")] Project project)
+        public ActionResult Edit([Bind(Include = "Id,Photo,Description,CategoryId,Name")] Project project, HttpPostedFileBase Photo)
         {
+            if (Photo != null)
+            {
+
+
+                if (Photo.ContentLength > 1048576)
+                {
+                    Session["imageError"] = "Invalid file size";
+                    RedirectToAction("Edit", "Projects", new { id = project.Id });
+                }
+                if (Photo.ContentType != "image/jpeg" && Photo.ContentType != "image/jpg" && Photo.ContentType != "image/png")
+                {
+                    Session["imageError"] = "File type must be jpg, jpeg, png";
+                    RedirectToAction("Edit", "Projects", new { id = project.Id });
+                }
+
+
+                string fName =  DateTime.Now.ToString("yyMMddHHmmss") + Photo.FileName;
+                string path = Path.Combine(Server.MapPath("~/Uploads"), fName);
+                Photo.SaveAs(path);
+                project.Photo = fName;
+                Project currentProject = db.Projects.Find(project.Id);
+                System.IO.File.Delete(Path.Combine(Server.MapPath("~/Uploads"), currentProject.Photo));
+                db.Entry(currentProject).State = EntityState.Detached;
+
+            }
+
+
             if (ModelState.IsValid)
             {
                 db.Entry(project).State = EntityState.Modified;
+                if (Photo == null)
+                {
+                    db.Entry(project).Property(p => p.Photo).IsModified = false;
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
