@@ -53,13 +53,13 @@ namespace WebApplication7.Areas.Manage.Controllers
             if( IntroPhoto.ContentLength> 1048576)
             {
                 Session["imageError"] = "Invalid file size";
-                RedirectToAction("Create");
+                return RedirectToAction("Create");
             }
 
             if (IntroPhoto.ContentType != "image/jpeg" && IntroPhoto.ContentType != "image/jpg" && IntroPhoto.ContentType != "image/png")
             {
                 Session["imageError"] = "File type must be jpg, jpeg, png";
-                RedirectToAction("Create");
+                return RedirectToAction("Create");
 
 
             }
@@ -106,12 +106,12 @@ namespace WebApplication7.Areas.Manage.Controllers
                 if (IntroPhoto.ContentLength > 1048576)
                 {
                     Session["imageError"] = "Invalid file size";
-                    RedirectToAction("Edit", "Settings", new { id = setting.Id });
+                    return RedirectToAction("Edit", "Settings", new { id = setting.Id });
                 }
                 if (IntroPhoto.ContentType != "image/jpeg" && IntroPhoto.ContentType != "image/jpg" && IntroPhoto.ContentType != "image/png")
                 {
                     Session["imageError"] = "File type must be jpg, jpeg, png";
-                    RedirectToAction("Edit", "Settings", new { id = setting.Id });
+                    return RedirectToAction("Edit", "Settings", new { id = setting.Id });
                 }
 
 
