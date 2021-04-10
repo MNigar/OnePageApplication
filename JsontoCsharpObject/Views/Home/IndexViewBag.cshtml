@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "IndexViewBag";
+}
+
+<h2>IndexViewBag</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Marka
+        </th>
+        <th>
+            Model
+        </th>
+    </tr>
+
+    @foreach (var item in ViewBag.csharobj.Autos)
+    {
+        <tr>
+            <td>
+               @item.marka
+            </td>
+            <td>
+                @item.model
+            </td>
+        </tr>
+    }
+</table>

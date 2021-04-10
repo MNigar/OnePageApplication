@@ -1,0 +1,29 @@
+﻿@model JsontoCsharpObject.Models.JsList
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table class="table">
+    <tr>
+        <th>
+           Marka
+        </th>
+        <th>
+            Model
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Autos)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.marka)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.model)
+    </td>
+</tr>
+    }
+</table>
