@@ -35,4 +35,9 @@ Html.BeginForm("Create","Posts",FormMethod.Post,new { @enctype="multipart/form-d
 
                 return View("post");
 }
+Session[“imageErrorun”]!=null{
+<span> Session[“imageErrorun”]</span>
+Session[“imageErrorun”]=null;
+}
+
 
