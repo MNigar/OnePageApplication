@@ -1,1 +1,38 @@
 @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control", @type = "file"} })
+
+
+<form action="/action_page.php" method="post" enctype="multipart/form-data">
+
+
+
+Html.BeginForm("Create","Posts",FormMethod.Post,new { @enctype="multipart/form-data"})
+
+
+
+<input name="Photo" type="file" accept="image/jpg" />
+
+
+
+@Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control", @type = "file", @accept = "image/jpg" } })
+
+
+
+[HttpPost]
+[ValidateAntiForgeryToken]
+  public ActionResult Create([Bind(Include = "Id,Photo")] Post post, HttpPostedFileBase Photo)
+        {     
+          if(Photo.ContentLength> 1048576)
+            {
+                Session["imageError"] = "Invalid file size";
+                return RedirectToAction("Create");
+            }
+          if(Photo.ContentType!="image/jpg")
+            {
+                Session["imageError"] = "File type must be jpg, jpeg, png";
+                return RedirectToAction("Create");
+
+            }
+
+                return View("post");
+}
+
