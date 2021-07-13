@@ -40,4 +40,44 @@ Session[“imageErrorun”]!=null{
 Session[“imageErrorun”]=null;
 }
 
+string fName = Photo.FileName;
+
+                
+string path = Path.Combine(Server.MapPath("~/Uploads"), fName);
+
+
+Photo.SaveAs(path);
+
+
+ [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,Title,Date,Photo,Tag,Text")] Post post, HttpPostedFileBase Photo)
+        {     
+            if(Photo.ContentLength> 1048576)
+            {
+                Session["imageError"] = "Invalid file size";
+                return RedirectToAction("Create");
+            }
+            if(Photo.ContentType!="image/jpeg" && Photo.ContentType!="image/jpg" && Photo.ContentType!= "image/png")
+            {
+                Session["imageError"] = "File type must be jpg, jpeg, png";
+                return RedirectToAction("Create");
+
+
+            }
+
+
+            if (ModelState.IsValid)
+            {
+                string fName = Photo.FileName;
+                string path = Path.Combine(Server.MapPath("~/Uploads"), fName);
+                Photo.SaveAs(path);
+                post.Photo = fName;
+                db.Posts.Add(post);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(post);
+        }
 
