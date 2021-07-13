@@ -1,1 +1,1 @@
-<input name="Photo" type="file" />
+@Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control", @type = "file"} })
